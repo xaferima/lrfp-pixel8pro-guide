@@ -32,7 +32,7 @@
 Modern Android security has evolved significantly. Apps now use:
 - **Play Integrity API** — replaced SafetyNet as primary integrity check
 - **RASP libraries** — detect root, Xposed, modified system properties
-- **Hardware-backed key attestation** — banking/payment app standard
+- **Hardware-backed key attestation** — high-security app standard
 
 This guide documents how to build an **invisible penetration testing device** using the LRFP stack.
 
