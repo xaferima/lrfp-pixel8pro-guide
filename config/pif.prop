@@ -1,0 +1,20 @@
+# Play Integrity Fix Configuration
+# Recommended settings for LRFP stack
+# Date: July 30, 2026
+
+# Device fingerprint
+FINGERPRINT=google/husky/husky:17/CP2A.260705.006/15641320:user/release-keys
+MANUFACTURER=Google
+MODEL=Pixel 8 Pro
+SECURITY_PATCH=2026-07-05
+
+# Spoofing options
+spoofBuild=true
+spoofProps=true
+spoofProvider=true
+spoofSignature=false
+spoofVendingBuild=true
+spoofVendingSdk=false
+
+# Debug options
+DEBUG=false

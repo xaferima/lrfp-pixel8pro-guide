@@ -1,0 +1,48 @@
+MIT License
+
+Copyright (c) 2026 LRFP Contributor
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+DISCLAIMER
+
+This software is provided for authorized security testing and research purposes only.
+
+By using this software, you agree that:
+
+1. You will only use it for authorized penetration testing and security research
+2. You have explicit written permission to test the target applications
+3. You will comply with all applicable laws and regulations
+4. The authors are not responsible for any misuse of this software
+
+This software is designed to help security professionals test the security
+of mobile applications in a controlled, authorized environment.
+
+Unauthorized use of this software to:
+- Bypass application security measures without authorization
+- Access accounts or systems without permission
+- Violate terms of service of any application
+- Engage in any illegal activity
+
+is strictly prohibited and may result in legal consequences.
+
+USE AT YOUR OWN RISK. THE AUTHORS ARE NOT RESPONSIBLE FOR ANY DAMAGE
+OR LEGAL CONSEQUENCES RESULTING FROM THE USE OF THIS SOFTWARE.

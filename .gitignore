@@ -1,0 +1,37 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+
+# Device backups (sensitive)
+*.img
+boot_stock_backup_*.img
+kernelsu_patched_*.img
+
+# Keybox files (sensitive)
+keybox.xml
+keybox.xml.bak
+
+# Packages (download from official sources)
+packages/
+*.apk
+*.zip
+
+# KeyboxGenerator (clone from official repo)
+keyboxGenerator/
+
+# Build artifacts
+build/
+dist/
