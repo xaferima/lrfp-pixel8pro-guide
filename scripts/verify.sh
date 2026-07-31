@@ -1,6 +1,6 @@
 #!/bin/bash
 # LRFP Verification Script
-# Author: LRFP Contributor
+# Author: Offensive Security Researcher
 # Date: July 30, 2026
 
 set -e

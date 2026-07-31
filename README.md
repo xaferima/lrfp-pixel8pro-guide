@@ -453,7 +453,7 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 ## Author
 
-**LRFP Contributor** — Offensive Security Researcher  
+Offensive Security Researcher  
 **Date:** July 30, 2026  
 **Device:** Google Pixel 8 Pro (husky) / Android 17
 
