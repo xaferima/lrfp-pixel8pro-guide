@@ -1,7 +1,7 @@
 #!/bin/bash
 # LRFP Installation Script for Pixel 8 Pro (Android 17)
 # Author: Offensive Security Researcher
-# Date: July 30, 2026
+# Date: October 12, 2026
 # Disclaimer: For authorized security testing only
 
 set -e
@@ -205,40 +205,40 @@ install_lsposed() {
 }
 
 install_hma() {
-    log_info "Phase 6: Installing HMA..."
+    log_info "Phase 6: Installing HMA-OSS..."
     
-    # Install HMA
-    log_info "Installing HMA APK..."
-    $ADB install "${PACKAGES_DIR}/HMA-V3.6.1.apk"
+    # Install HMA-OSS (original HMA project is discontinued)
+    log_info "Installing HMA-OSS APK (oss-162)..."
+    $ADB install "${PACKAGES_DIR}/HMA-OSS-oss-162-release.apk"
     
-    log_success "HMA installed"
-    log_warning "Please configure HMA:"
-    log_warning "1. Open LSPosed Manager → Modules → HMA → Enable"
+    log_success "HMA-OSS installed"
+    log_warning "Please configure HMA-OSS:"
+    log_warning "1. Open LSPosed Manager → Modules → HMA-OSS → Enable"
     log_warning "2. Scope: System Framework only"
-    log_warning "3. Open HMA app → Settings"
-    log_warning "4. Hide icon from launcher = ON"
-    log_warning "5. Data Isolation: ON, OFF, ON"
+    log_warning "3. Open HMA-OSS app → Settings"
+    log_warning "4. Hide module icon from launcher = ON"
+    log_warning "5. forceMountData = ON"
     log_warning "Press Enter when done..."
     read -r
     
-    log_success "HMA configured"
+    log_success "HMA-OSS configured"
 }
 
-install_fusefixer() {
-    log_info "Phase 7: Installing FuseFixer..."
+install_trustme() {
+    log_info "Phase 7: Installing TrustMe (SSL bypass)..."
     
-    # Install FuseFixer
-    log_info "Installing FuseFixer APK..."
-    $ADB install "${PACKAGES_DIR}/FuseFixer-38.apk"
+    # Install TrustMe (SSLUnpinner does not work on Android 17)
+    log_info "Installing TrustMe APK..."
+    $ADB install "${PACKAGES_DIR}/TrustMe-v1.2.0-debug.apk"
     
-    log_success "FuseFixer installed"
-    log_warning "Please enable FuseFixer in LSPosed Manager:"
-    log_warning "1. LSPosed Manager → Modules → FuseFixer → Enable"
-    log_warning "2. Scope: System Framework or target apps"
+    log_success "TrustMe installed"
+    log_warning "Please enable TrustMe in LSPosed Manager:"
+    log_warning "1. LSPosed Manager → Modules → TrustMe → Enable"
+    log_warning "2. Scope: System Framework + target apps"
     log_warning "Press Enter when done..."
     read -r
     
-    log_success "FuseFixer configured"
+    log_success "TrustMe configured"
 }
 
 install_play_integrity_fix() {
@@ -357,7 +357,7 @@ main() {
     install_zygisk_next
     install_lsposed
     install_hma
-    install_fusefixer
+    install_trustme
     install_play_integrity_fix
     install_teesimulator
     install_vbmeta_audit

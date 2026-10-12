@@ -77,8 +77,8 @@ LRFP is a comprehensive bypass stack created by the **LRFP-Team** for 2026:
 ├─────────────────────────────────────────────────────────────┤
 │  LAYER 3: XPOSED FRAMEWORK                                  │
 │  └── LSPosed v2.1.1 (JingMatrix Fork)                     │
-│      ├── HMA v499 — Hide apps from list                │
-│      └── FuseFixer — SELinux/Fuse bypass               │
+│      ├── HMA-OSS oss-162 — Hide apps from list            │
+│      └── TrustMe v1.2.0 — SSL certificate bypass          │
 ├─────────────────────────────────────────────────────────────┤
 │  LAYER 4: PLAY INTEGRITY                                    │
 │  └── Play Integrity Fix v4.7-1-inject-s                    │
@@ -195,24 +195,42 @@ sleep 30
 # Settings: Disable logs, Create shortcut, Disable notification
 ```
 
-### Phase 6: Install HMA
+### Phase 6: Install HMA-OSS
+
+> **⚠️ Note:** The original HMA project (`Dr-TSNG/Hide-My-Applist`) has been discontinued.
+> Use **HMA-OSS** (`org.frknkrc44.hma_oss`) instead. Release **oss-162** is the last one
+> with an LSPosed backend; releases ≥ oss-164 are Zygisk ZIP only.
 
 ```bash
-# Install HMA
-adb install packages/HMA-V3.6.1.apk
+# Install HMA-OSS (oss-162 APK)
+adb install packages/HMA-OSS-oss-162-release.apk
 
 # Enable in LSPosed Manager
-# Modules → HMA → Enable → Scope: System Framework only
+# Modules → HMA-OSS → Enable → Scope: System Framework only
 
-# Configure HMA
-# Open HMA app → Settings → Hide icon = ON
-# Data Isolation: ON, OFF, ON
+# Configure HMA-OSS
+# Open HMA-OSS → Settings:
+#   Hide module icon from launcher = ON
+#   forceMountData = ON
 ```
 
-### Phase 7: Install FuseFixer
+### Phase 7: Install TrustMe (SSL Bypass)
 
 ```bash
-# Install FuseFixer
+# Install TrustMe
+adb install packages/TrustMe-v1.2.0-debug.apk
+
+# Enable in LSPosed Manager
+# Modules → TrustMe → Enable → Scope: System Framework + target apps
+```
+
+> **⚠️ Note:** SSLUnpinner does **not** work on Android 17 (cannot be enabled in LSPosed).
+> TrustMe is the recommended SSL bypass module.
+
+### Phase 7b (Optional): Install FuseFixer
+
+```bash
+# FuseFixer is OPTIONAL — not required on the validated Android 17 stack
 adb install packages/FuseFixer-38.apk
 
 # Enable in LSPosed Manager
@@ -313,15 +331,20 @@ spoofVendingSdk=false
 | Create shortcut | ON |
 | Taskbar notification | OFF |
 
-#### HMA Settings
+#### HMA-OSS Settings
 
 | Setting | Value |
 |---|---|
-| Hide icon | ON |
-| Data Isolation Switch 1 | ON |
-| Data Isolation Switch 2 | OFF |
-| Data Isolation Switch 3 | ON |
+| Hide module icon from launcher | ON |
+| forceMountData | ON |
 | Scope | System Framework only |
+| Template | RootHiding (blacklist of root-detection apps) |
+
+#### TrustMe Settings
+
+| Setting | Value |
+|---|---|
+| Scope | System Framework + target apps |
 
 ---
 
@@ -353,7 +376,7 @@ adb shell "getprop ro.boot.vbmeta.hash_alg"
 # 5. Installed modules
 adb shell "su -c 'ls /data/adb/modules/'"
 
-# 6. HMA hooks
+# 6. HMA-OSS hooks
 adb shell "cat /data/adb/lspd/log/modules_*.log | grep HMA"
 ```
 
@@ -387,10 +410,15 @@ adb reboot
 ### Issue 4: App Still Detects Root
 
 **Solution:**
-1. Verify app is in HMA blacklist
+1. Verify app is in HMA-OSS blacklist (RootHiding template)
 2. Verify app is in TEESimulator-RS `target.txt`
 3. Check LSPosed logs for errors
 4. Consider additional modules (TrustMe, IAmNotADeveloper)
+
+### Issue 5: SSLUnpinner Not Available on Android 17
+
+**Expected:** SSLUnpinner cannot be enabled in LSPosed on Android 17 (SDK 37).
+**Solution:** Use **TrustMe** for SSL certificate bypass instead.
 
 ---
 
@@ -412,7 +440,9 @@ adb reboot
 | TEESimulator-RS | v6.0.1-282 | [github.com/Enginex0/TEESimulator-RS](https://github.com/Enginex0/TEESimulator-RS) |
 | VBMeta Fixer | v1.2.0 | [github.com/Reveny/Android-VBMeta-Fixer](https://github.com/Reveny/Android-VBMeta-Fixer) |
 | ZN-Audit Patch | v1.2.0 | [github.com/aviraxp/ZN-AuditPatch](https://github.com/aviraxp/ZN-AuditPatch) |
-| FuseFixer | v38 | [github.com/5ec1cff/FuseFixer](https://github.com/5ec1cff/FuseFixer) |
+| HMA-OSS | oss-162 | [github.com/frknkrc44/HMA-OSS](https://github.com/frknkrc44/HMA-OSS) |
+| TrustMe | v1.2.0 | [github.com/kirklin/TrustMe](https://github.com/kirklin/TrustMe) |
+| FuseFixer (optional) | v38 | [github.com/5ec1cff/FuseFixer](https://github.com/5ec1cff/FuseFixer) |
 | keyboxGenerator | — | [github.com/LRFP-Team/keyboxGenerator](https://github.com/LRFP-Team/keyboxGenerator) |
 
 ### Additional Resources
@@ -454,7 +484,7 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 ## Author
 
 Offensive Security Researcher  
-**Date:** July 30, 2026  
+**Date:** October 12, 2026  
 **Device:** Google Pixel 8 Pro (husky) / Android 17
 
 ---

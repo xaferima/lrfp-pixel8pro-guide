@@ -25,12 +25,16 @@ keybox.xml
 keybox.xml.bak
 
 # Packages (download from official sources)
-packages/
+packages/*
+!packages/README.md
 *.apk
 *.zip
 
 # KeyboxGenerator (clone from official repo)
 keyboxGenerator/
+
+# HMA-OSS backups (may contain target app package names)
+hma-oss-backup/
 
 # Build artifacts
 build/

@@ -2,6 +2,8 @@
 
 Thank you for your interest in contributing to this project!
 
+> **Last updated:** October 12, 2026
+
 ## How to Contribute
 
 ### Reporting Issues
