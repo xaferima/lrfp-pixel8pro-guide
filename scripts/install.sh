@@ -1,6 +1,6 @@
 #!/bin/bash
 # LRFP Installation Script for Pixel 8 Pro (Android 17)
-# Author: Offensive Security Researcher
+# Author: Xavier Riofrio — Offensive Security Researcher
 # Date: October 12, 2026
 # Disclaimer: For authorized security testing only
 
